@@ -31,6 +31,39 @@ class Movie {
     imdbId = json['imdb_id'];
   }
 
+  // Movie(
+  //     {required this.id,
+  //     required this.title,
+  //     required this.releaseDate,
+  //     required this.boxOffice,
+  //     required this.duration,
+  //     required this.overview,
+  //     required this.coverUrl,
+  //     required this.trailerUrl,
+  //     required this.directedBy,
+  //     required this.phase,
+  //     required this.saga,
+  //     required this.chronology,
+  //     required this.postCreditScenes,
+  //     required this.imdbId});
+
+  // factory Movie.fromJson(Map<String, dynamic> json) => Movie(
+  //       id: json['id'],
+  //       title: json['title'],
+  //       releaseDate: json['release_date'],
+  //       boxOffice: json['box_office'],
+  //       duration: json['duration'],
+  //       overview: json['overview'],
+  //       coverUrl: json['cover_url'],
+  //       trailerUrl: json['trailer_url'],
+  //       directedBy: json['directed_by'],
+  //       phase: json['phase'],
+  //       saga: json['saga'],
+  //       chronology: json['chronology'],
+  //       postCreditScenes: json['post_credit_scenes'],
+  //       imdbId: json['imdb_id'],
+  //     );
+
   // Map<String, dynamic> toJson() {
   //   final Map<String, dynamic> data = Map<String, dynamic>();
   //   data['id'] = id;

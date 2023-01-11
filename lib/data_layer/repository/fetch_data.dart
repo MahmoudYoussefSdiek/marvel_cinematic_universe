@@ -7,14 +7,15 @@ class FetchData {
   final WebServices webServices;
 
   FetchData(this.webServices);
+
   Future<List<dynamic>> getAllData(String path) async {
     final data = await webServices.getAllData(path);
     if (path == getAllMovies) {
-      return data.map((e) => Movie.fromJson(e)).toList();
+      return data.map((movie) => Movie.fromJson(movie)).toList();
     } else if (path == getAllSeries) {
-      return data.map((e) => Series.fromJson(e)).toList();
+      return data.map((series) => Series.fromJson(series)).toList();
     } else {
-      return [];
+      return ['no data'];
     }
   }
 }

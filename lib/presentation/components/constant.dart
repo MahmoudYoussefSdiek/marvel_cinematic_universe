@@ -9,4 +9,5 @@ const String seriesScreenRoute = '/seriesScreen';
 const String baseUrl = 'https://mcuapi.herokuapp.com/api/v1/';
 const String getAllMovies = 'movies';
 const String getAllSeries = 'tvshows';
+const String dataList = 'data';
 //---------------------------------------------

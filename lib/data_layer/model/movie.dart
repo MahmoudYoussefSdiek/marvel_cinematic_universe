@@ -1,18 +1,34 @@
 class Movie {
-  late int id;
-  late String title;
-  late String releaseDate;
-  late String boxOffice;
-  late int duration;
-  late String overview;
-  late String coverUrl;
-  late String trailerUrl;
-  late String directedBy;
-  late int phase;
-  late String saga;
-  late int chronology;
-  late int postCreditScenes;
-  late String imdbId;
+  int? id;
+  String? title;
+  String? releaseDate;
+  String? boxOffice;
+  int? duration;
+  String? overview;
+  String? coverUrl;
+  String? trailerUrl;
+  String? directedBy;
+  int? phase;
+  String? saga;
+  int? chronology;
+  int? postCreditScenes;
+  String? imdbId;
+
+  // Movie(
+  //     {required this.id,
+  //     required this.title,
+  //     required this.releaseDate,
+  //     required this.boxOffice,
+  //     required this.duration,
+  //     required this.overview,
+  //     required this.coverUrl,
+  //     required this.trailerUrl,
+  //     required this.directedBy,
+  //     required this.phase,
+  //     required this.saga,
+  //     required this.chronology,
+  //     required this.postCreditScenes,
+  //     required this.imdbId});
 
   Movie.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -30,22 +46,6 @@ class Movie {
     postCreditScenes = json['post_credit_scenes'];
     imdbId = json['imdb_id'];
   }
-
-  // Movie(
-  //     {required this.id,
-  //     required this.title,
-  //     required this.releaseDate,
-  //     required this.boxOffice,
-  //     required this.duration,
-  //     required this.overview,
-  //     required this.coverUrl,
-  //     required this.trailerUrl,
-  //     required this.directedBy,
-  //     required this.phase,
-  //     required this.saga,
-  //     required this.chronology,
-  //     required this.postCreditScenes,
-  //     required this.imdbId});
 
   // factory Movie.fromJson(Map<String, dynamic> json) => Movie(
   //       id: json['id'],

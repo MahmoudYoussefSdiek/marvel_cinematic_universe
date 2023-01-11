@@ -15,7 +15,7 @@ class FetchData {
     } else if (path == getAllSeries) {
       return data.map((series) => Series.fromJson(series)).toList();
     } else {
-      return ['no data'];
+      return [];
     }
   }
 }

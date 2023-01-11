@@ -16,11 +16,11 @@ class WebServices {
   Future<List<dynamic>> getAllData(String path) async {
     try {
       Response response = await dio.get(path);
-      // print(response.data.toString());
-      return response.data;
+
+      return response.data[dataList];
     } catch (e) {
       print(e.toString());
-      return ['something wrong happen'];
+      return ['Something wrong happen'];
     }
   }
 }

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:marvel_cinematic_universe/business_logic/cubit/data_controller_cubit.dart';
 import 'package:marvel_cinematic_universe/presentation/components/constant.dart';
-import 'package:marvel_cinematic_universe/presentation/components/widget/movies_list_widget.dart';
 import 'package:marvel_cinematic_universe/presentation/components/widget/show_loading_indicator.dart';
 import 'package:marvel_cinematic_universe/presentation/styles/colors.dart';
 
@@ -15,7 +14,7 @@ class MoviesScreen extends StatefulWidget {
 }
 
 class _MoviesScreenState extends State<MoviesScreen> {
-  late List<dynamic> allMovies;
+  List<dynamic> allMovies = [];
 
   @override
   void initState() {
@@ -40,7 +39,9 @@ class _MoviesScreenState extends State<MoviesScreen> {
       builder: (context, state) {
         if (state is MoviesLoaded) {
           allMovies = (state).movies;
-          return moviesListWidget();
+          //movie = allMovies[0];
+          return Text(allMovies[1].title);
+          // return moviesListWidget(length: allMovies.length);
         } else {
           return showLoadingIndicator();
         }

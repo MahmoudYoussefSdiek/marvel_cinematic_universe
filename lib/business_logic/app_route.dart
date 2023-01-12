@@ -8,23 +8,20 @@ import 'package:marvel_cinematic_universe/presentation/layout/movies_screen.dart
 import 'package:marvel_cinematic_universe/presentation/layout/series_screen.dart';
 
 class AppRoute {
-  late FetchData fetchData; // repository we will pass it to Cubit
-  late DataControllerCubit
-      dataControllerCubit; // Cubit but we need to pass repository to Cubit
+  // late FetchData fetchData; // repository we will pass it to Cubit
+  // late DataControllerCubit
+  //     dataControllerCubit; // Cubit but we need to pass repository to Cubit
 
-  AppRoute() {
-    fetchData = FetchData(WebServices());
-    dataControllerCubit = DataControllerCubit(fetchData);
-  }
+  // AppRoute() {
+  //   fetchData = FetchData(WebServices());
+  //   dataControllerCubit = DataControllerCubit(fetchData);
+  // }
 
   Route? generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case HomeScreen.route:
         return MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (BuildContext context) => dataControllerCubit,
-            child: const HomeScreen(),
-          ),
+          builder: (_) => const HomeScreen(),
         );
 
       case MoviesScreen.route:

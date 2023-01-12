@@ -7,8 +7,8 @@ part 'data_controller_state.dart';
 
 class DataControllerCubit extends Cubit<DataControllerState> {
   final FetchData data;
-  late List<dynamic> movies;
-  late List<dynamic> series;
+  List<dynamic> movies = [];
+  List<dynamic> series = [];
   DataControllerCubit(this.data) : super(DataControllerInitial());
 
   List<dynamic> getAllData(String path) {

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:marvel_cinematic_universe/data_layer/repository/fetch_data.dart';
-import 'package:marvel_cinematic_universe/data_layer/web_services/web_services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:marvel_cinematic_universe/business_logic/cubit/data_controller_cubit.dart';
 import 'package:marvel_cinematic_universe/presentation/components/constant.dart';
+import 'package:marvel_cinematic_universe/presentation/layout/movies_screen.dart';
+import 'package:marvel_cinematic_universe/presentation/layout/series_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -16,16 +18,12 @@ class HomeScreen extends StatelessWidget {
         child: Column(children: [
           TextButton(
               onPressed: () async {
-                FetchData data = FetchData(WebServices());
-                final list = await data.getAllData(getAllMovies);
-                print(list[0].overview);
+                Navigator.pushNamed(context, MoviesScreen.route);
               },
               child: const Text('Movies')),
           TextButton(
               onPressed: () async {
-                FetchData data = FetchData(WebServices());
-                var list = await data.getAllData(getAllSeries);
-                print(list[0].title);
+                Navigator.pushNamed(context, SeriesScreen.route);
               },
               child: const Text('Series')),
         ]),

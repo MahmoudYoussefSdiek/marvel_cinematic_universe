@@ -2,20 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:marvel_cinematic_universe/presentation/components/widget/data_item.dart';
 import 'package:marvel_cinematic_universe/presentation/styles/colors.dart';
 
-Widget moviesListWidget() {
+Widget moviesListWidget({required int length}) {
   return SingleChildScrollView(
     child: Container(
       color: AppColors.secondaryColor,
       child: Column(
         children: [
-          buildMovies(),
+          buildMovies(length: length),
         ],
       ),
     ),
   );
 }
 
-Widget buildMovies() {
+Widget buildMovies({required int length}) {
   return GridView.builder(
     gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
       crossAxisCount: 1,
@@ -26,6 +26,7 @@ Widget buildMovies() {
     shrinkWrap: true,
     physics: const ClampingScrollPhysics(),
     padding: EdgeInsets.zero,
+    itemCount: length,
     itemBuilder: (context, index) {
       return const DataItem();
     },

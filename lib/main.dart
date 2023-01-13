@@ -19,7 +19,7 @@ class MarvelTvShow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => DataControllerCubit(FetchData(WebServices())),
+      create: (context) => AppRoute.dataControllerCubit,
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         onGenerateRoute: (settings) => appRoute.generateRoute(settings),

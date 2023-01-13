@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:marvel_cinematic_universe/business_logic/cubit/data_controller_cubit.dart';
 import 'package:marvel_cinematic_universe/presentation/components/constant.dart';
 import 'package:marvel_cinematic_universe/presentation/layout/movies_screen.dart';
 import 'package:marvel_cinematic_universe/presentation/layout/series_screen.dart';

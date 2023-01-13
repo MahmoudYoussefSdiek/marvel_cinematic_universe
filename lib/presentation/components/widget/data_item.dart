@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:marvel_cinematic_universe/presentation/styles/colors.dart';
 
+/* Here DataItem is widget will be used to build movie list or series list
+* it will dynamic list (type Movie or type list both will work same way)
+* and take int index (will take this index from Builder) to create single
+* DataItem for every item in list (movie list or series list)  */
+//2
 class DataItem extends StatelessWidget {
   final List<dynamic> data;
   final int index;

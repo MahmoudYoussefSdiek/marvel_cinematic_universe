@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:marvel_cinematic_universe/business_logic/cubit/data_controller_cubit.dart';
 import 'package:marvel_cinematic_universe/data_layer/repository/fetch_data.dart';
 import 'package:marvel_cinematic_universe/data_layer/web_services/web_services.dart';
-import 'package:marvel_cinematic_universe/presentation/layout/home_screen.dart';
-import 'package:marvel_cinematic_universe/presentation/layout/movies_screen.dart';
-import 'package:marvel_cinematic_universe/presentation/layout/series_screen.dart';
+import 'package:marvel_cinematic_universe/presentation/layout/home_layout.dart';
+import 'package:marvel_cinematic_universe/presentation/layout/movies_layout.dart';
+import 'package:marvel_cinematic_universe/presentation/layout/series_layout.dart';
 
 class AppRoute {
   static late FetchData fetchData; // repository we will pass it to Cubit
@@ -18,20 +18,20 @@ class AppRoute {
 
   Route? generateRoute(RouteSettings settings) {
     switch (settings.name) {
-      case HomeScreen.route:
+      case HomeLayout.route:
         return MaterialPageRoute(
-          builder: (_) => const HomeScreen(),
+          builder: (_) => const HomeLayout(),
         );
 
-      case MoviesScreen.route:
-        return MaterialPageRoute(builder: (_) => const MoviesScreen());
+      case MoviesLayout.route:
+        return MaterialPageRoute(builder: (_) => const MoviesLayout());
 
-      case SeriesScreen.route:
-        return MaterialPageRoute(builder: (_) => const SeriesScreen());
+      case SeriesLayout.route:
+        return MaterialPageRoute(builder: (_) => const SeriesLayout());
 
       default:
         return null;
-      // return MaterialPageRoute(builder: (_) => const HomeScreen());
+      // return MaterialPageRoute(builder: (_) => const HomeLayout());
     }
   }
 }

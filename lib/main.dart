@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:marvel_cinematic_universe/business_logic/app_route.dart';
-import 'package:marvel_cinematic_universe/business_logic/cubit/data_controller_cubit.dart';
-import 'package:marvel_cinematic_universe/data_layer/repository/fetch_data.dart';
-import 'package:marvel_cinematic_universe/data_layer/web_services/web_services.dart';
 
 void main() {
   runApp(MarvelTvShow(

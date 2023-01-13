@@ -1,8 +1,8 @@
 //  ----------------app routes-----------------
 //  page route name
-const String homeScreenRoute = '/';
-const String moviesScreenRoute = '/movieScreen';
-const String seriesScreenRoute = '/seriesScreen';
+const String HomeLayoutRoute = '/';
+const String MoviesLayoutRoute = '/movieScreen';
+const String SeriesLayoutRoute = '/SeriesLayout';
 //---------------------------------------------
 
 //---------------API---------------------------

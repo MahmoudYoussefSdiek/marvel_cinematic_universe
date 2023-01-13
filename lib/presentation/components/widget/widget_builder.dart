@@ -1,27 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:marvel_cinematic_universe/presentation/components/widget/data_item.dart';
-import 'package:marvel_cinematic_universe/presentation/styles/colors.dart';
 
-Widget moviesListWidget({
-  required int length,
-  required List<dynamic> data,
-}) {
-  return SingleChildScrollView(
-    child: Container(
-      color: AppColors.secondaryColor,
-      child: Column(
-        children: [
-          buildMovies(
-            length: length,
-            data: data,
-          ),
-        ],
-      ),
-    ),
-  );
-}
-
-Widget buildMovies({
+Widget widgetBuilder({
+  //1
   required int length,
   required List<dynamic> data,
 }) {
@@ -40,7 +21,7 @@ Widget buildMovies({
       return DataItem(
         data: data,
         index: index,
-      );
+      ); //2
     },
   );
 }

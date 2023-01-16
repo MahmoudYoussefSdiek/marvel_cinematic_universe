@@ -38,8 +38,8 @@ class _SeriesLayoutState extends State<SeriesLayout> {
   Widget buildSeriesList() {
     return BlocBuilder<DataControllerCubit, DataControllerState>(
       builder: (context, state) {
-        if (state is MoviesLoaded) {
-          allSeries = (state).movies;
+        if (state is SeriesLoaded) {
+          allSeries = (state).series;
 
           return SeriesScreen(
             length: allSeries.length,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:marvel_cinematic_universe/presentation/components/widget/show_loading_indicator.dart';
 import 'package:marvel_cinematic_universe/presentation/styles/colors.dart';
 
 /* Here DataItem is widget will be used to build movie list or series list
@@ -29,7 +30,13 @@ class DataItem extends StatelessWidget {
       child: GridTile(
         child: Column(
           children: [
-            Expanded(child: Image.network(data[index].coverUrl)),
+            Expanded(
+              child: Image.network(
+                data[index].coverUrl,
+                loadingBuilder: (context, child, loadingProgress) =>
+                    loadingProgress == null ? child : showLoadingIndicator(),
+              ),
+            ),
             Text(
               ' Title : ${data[index].title}',
               style: const TextStyle(
@@ -37,7 +44,7 @@ class DataItem extends StatelessWidget {
               ),
             ),
             Text(
-              ' Release Date : ${data[index].releaseDate}',
+              ' Release Date : ${data[index].releaseDate ?? "Upcoming"}',
               style: const TextStyle(
                 color: Colors.white,
               ),

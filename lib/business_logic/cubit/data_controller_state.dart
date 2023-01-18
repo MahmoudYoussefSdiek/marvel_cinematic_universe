@@ -6,11 +6,11 @@ abstract class DataControllerState {}
 class DataControllerInitial extends DataControllerState {}
 
 class MoviesLoaded extends DataControllerState {
-  final List<dynamic> movies;
-  MoviesLoaded(this.movies);
+  //final List<dynamic> movies;
+  MoviesLoaded();
 }
 
 class SeriesLoaded extends DataControllerState {
-  final List<dynamic> series;
-  SeriesLoaded(this.series);
+  //final List<dynamic> series;
+  SeriesLoaded();
 }

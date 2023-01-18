@@ -6,6 +6,7 @@ Widget listWidget({
 }) {
   return SingleChildScrollView(
     child: Container(
+      // height: double.infinity,
       color: AppColors.secondaryColor,
       child: widget,
     ),

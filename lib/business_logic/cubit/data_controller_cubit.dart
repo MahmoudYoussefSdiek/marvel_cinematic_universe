@@ -19,7 +19,7 @@ class DataControllerCubit extends Cubit<DataControllerState> {
         for (int i = 0; i < allData.length; i++) {
           movies.add(allData[i]);
         }
-        emit(MoviesLoaded(allData));
+        emit(MoviesLoaded());
       });
       return movies;
     } else if (path == getAllSeries) {
@@ -27,7 +27,7 @@ class DataControllerCubit extends Cubit<DataControllerState> {
         for (int i = 0; i < allData.length; i++) {
           series.add(allData[i]);
         }
-        emit(SeriesLoaded(allData));
+        emit(SeriesLoaded());
       });
       return series;
     } else {

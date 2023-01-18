@@ -7,7 +7,7 @@ import 'package:marvel_cinematic_universe/presentation/styles/colors.dart';
 
 class HomeLayout extends StatelessWidget {
   const HomeLayout({Key? key}) : super(key: key);
-  static const String route = HomeLayoutRoute;
+  static const String route = homeLayoutRoute;
   @override
   Widget build(BuildContext context) {
     return Scaffold(

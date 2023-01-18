@@ -3,12 +3,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:marvel_cinematic_universe/business_logic/cubit/data_controller_cubit.dart';
 import 'package:marvel_cinematic_universe/presentation/components/constant.dart';
 import 'package:marvel_cinematic_universe/presentation/components/widget/show_loading_indicator.dart';
-import 'package:marvel_cinematic_universe/presentation/screens/movie_screen.dart';
+import 'package:marvel_cinematic_universe/presentation/screens/movies_screen.dart';
 import 'package:marvel_cinematic_universe/presentation/styles/colors.dart';
 
 class MoviesLayout extends StatefulWidget {
   const MoviesLayout({Key? key}) : super(key: key);
-  static const String route = MoviesLayoutRoute;
+  static const String route = moviesLayoutRoute;
 
   @override
   State<MoviesLayout> createState() => _MoviesLayoutState();
@@ -20,7 +20,14 @@ class _MoviesLayoutState extends State<MoviesLayout> {
   @override
   void initState() {
     super.initState();
-    BlocProvider.of<DataControllerCubit>(context).getAllData(getAllMovies);
+    allMovies =
+        BlocProvider.of<DataControllerCubit>(context).getAllData(getAllMovies);
+  }
+
+  @override
+  void dispose() {
+    allMovies.clear();
+    super.dispose();
   }
 
   @override
@@ -38,8 +45,7 @@ class _MoviesLayoutState extends State<MoviesLayout> {
     return BlocBuilder<DataControllerCubit, DataControllerState>(
       builder: (context, state) {
         if (state is MoviesLoaded) {
-          allMovies = (state).movies;
-
+          // allMovies = (state).movies;
           return MovieScreen(
             length: allMovies.length,
             data: allMovies,

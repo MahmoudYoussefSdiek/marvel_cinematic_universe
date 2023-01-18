@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:marvel_cinematic_universe/business_logic/cubit/data_controller_cubit.dart';
 import 'package:marvel_cinematic_universe/data_layer/repository/fetch_data.dart';
 import 'package:marvel_cinematic_universe/data_layer/web_services/web_services.dart';
+import 'package:marvel_cinematic_universe/presentation/layout/details_layout.dart';
 import 'package:marvel_cinematic_universe/presentation/layout/home_layout.dart';
 import 'package:marvel_cinematic_universe/presentation/layout/movies_layout.dart';
 import 'package:marvel_cinematic_universe/presentation/layout/series_layout.dart';
@@ -28,6 +29,10 @@ class AppRoute {
 
       case SeriesLayout.route:
         return MaterialPageRoute(builder: (_) => const SeriesLayout());
+
+      case DetailsLayout.rout:
+        return MaterialPageRoute(
+            builder: (_) => DetailsLayout(index: settings.arguments as int));
 
       default:
         return null;

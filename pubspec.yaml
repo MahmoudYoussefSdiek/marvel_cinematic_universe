@@ -38,6 +38,8 @@ dependencies:
   flutter_bloc:
   dio:
   flutter_spinkit:
+  video_player:
+  youtube_player_flutter:
 
 
 dev_dependencies:

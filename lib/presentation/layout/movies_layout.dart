@@ -20,8 +20,7 @@ class _MoviesLayoutState extends State<MoviesLayout> {
   @override
   void initState() {
     super.initState();
-    allMovies =
-        BlocProvider.of<DataControllerCubit>(context).getAllData(getAllMovies);
+    BlocProvider.of<DataControllerCubit>(context).getAllData(getAllMovies);
   }
 
   @override

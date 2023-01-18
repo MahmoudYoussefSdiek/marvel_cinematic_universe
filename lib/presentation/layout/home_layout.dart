@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:marvel_cinematic_universe/presentation/components/constant.dart';
+import 'package:marvel_cinematic_universe/presentation/components/widget/default_button.dart';
 import 'package:marvel_cinematic_universe/presentation/layout/movies_layout.dart';
 import 'package:marvel_cinematic_universe/presentation/layout/series_layout.dart';
 import 'package:marvel_cinematic_universe/presentation/styles/colors.dart';
@@ -25,22 +26,8 @@ class HomeLayout extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              TextButton(
-                  onPressed: () async {
-                    Navigator.pushNamed(context, MoviesLayout.route);
-                  },
-                  child: const Text(
-                    'Movies',
-                    style: TextStyle(color: Colors.white),
-                  )),
-              TextButton(
-                  onPressed: () async {
-                    Navigator.pushNamed(context, SeriesLayout.route);
-                  },
-                  child: const Text(
-                    'Series',
-                    style: TextStyle(color: Colors.white),
-                  )),
+              defaultButton(context, 'Movies', MoviesLayout.route),
+              defaultButton(context, 'Series', SeriesLayout.route),
             ],
           ),
         ),

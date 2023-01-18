@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:marvel_cinematic_universe/presentation/components/widget/show_loading_indicator.dart';
-import 'package:marvel_cinematic_universe/presentation/styles/colors.dart';
 
 /* Here DataItem is widget will be used to build movie list or series list
 * it will dynamic list (type Movie or type list both will work same way)
@@ -22,36 +21,42 @@ class DataItem extends StatelessWidget {
     return Container(
       width: double.infinity,
       margin: const EdgeInsetsDirectional.fromSTEB(8, 8, 8, 8),
-      padding: const EdgeInsets.all(4),
+      padding: const EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
       decoration: BoxDecoration(
-        color: AppColors.secondaryColor,
-        borderRadius: BorderRadius.circular(8),
+        color: Colors.redAccent,
+        borderRadius: BorderRadius.circular(10),
       ),
-      child: GridTile(
-        child: Column(
-          children: [
-            Expanded(
-              child: Image.network(
-                data[index].coverUrl,
-                loadingBuilder: (context, child, loadingProgress) =>
-                    loadingProgress == null ? child : showLoadingIndicator(),
-              ),
+      child: Column(
+        children: [
+          Expanded(
+            child: Image.network(
+              data[index].coverUrl,
+              loadingBuilder: (context, child, loadingProgress) =>
+                  loadingProgress == null ? child : showLoadingIndicator(),
+              fit: BoxFit.cover,
             ),
-            Text(
-              ' Title : ${data[index].title}',
-              style: const TextStyle(
-                color: Colors.white,
-              ),
+          ),
+          const SizedBox(
+            height: 5,
+          ),
+          Text(
+            ' Title : ${data[index].title}',
+            style: const TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
             ),
-            Text(
-              ' Release Date : ${data[index].releaseDate ?? "Upcoming"}',
-              style: const TextStyle(
-                color: Colors.white,
-              ),
+          ),
+          Text(
+            ' Release Date : ${data[index].releaseDate ?? "Upcoming"}',
+            style: const TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
             ),
-            const Divider(),
-          ],
-        ),
+          ),
+          const SizedBox(
+            height: 5,
+          ),
+        ],
       ),
     );
   }

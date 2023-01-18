@@ -7,11 +7,7 @@ Widget listWidget({
   return SingleChildScrollView(
     child: Container(
       color: AppColors.secondaryColor,
-      child: Column(
-        children: [
-          widget, //1
-        ],
-      ),
+      child: widget,
     ),
   );
 }

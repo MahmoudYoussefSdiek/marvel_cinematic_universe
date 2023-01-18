@@ -7,7 +7,7 @@ Widget showLoadingIndicator() {
     //   color: AppColors.mainColor,
     // ),
     child: SpinKitSpinningLines(
-      color: Colors.red,
+      color: Colors.black,
       size: 50.0,
     ),
   );

@@ -5,6 +5,9 @@ import 'package:marvel_cinematic_universe/business_logic/cubit/data_controller_c
 import 'package:marvel_cinematic_universe/data_layer/model/movie.dart';
 import 'package:marvel_cinematic_universe/data_layer/model/series.dart';
 import 'package:marvel_cinematic_universe/presentation/components/constant.dart';
+import 'package:marvel_cinematic_universe/presentation/components/widget/movie_details_list.dart';
+import 'package:marvel_cinematic_universe/presentation/components/widget/series_details_list.dart';
+import 'package:marvel_cinematic_universe/presentation/components/widget/trailer_not_available.dart';
 import 'package:marvel_cinematic_universe/presentation/screens/movie_details_screen.dart';
 import 'package:marvel_cinematic_universe/presentation/screens/series_details_screen.dart';
 import 'package:marvel_cinematic_universe/presentation/styles/colors.dart';
@@ -23,14 +26,31 @@ class _DetailsLayoutState extends State<DetailsLayout> {
   Widget build(BuildContext context) {
     if (AppRoute.dataControllerCubit.state is MoviesLoaded) {
       final Movie movie = AppRoute.dataControllerCubit.movies[widget.index];
-      return MovieDetailsScreen(
-        movie: movie,
-        url: moviesUrl[widget.index],
-      );
+      final String url = AppRoute.dataControllerCubit
+          .getTrailerUrl(widget.index, getMoviesUrls);
+      return url == ''
+          ? trailerNotAvailable(
+              title: movie.title!,
+              widget: movieDetailsList(movie),
+            )
+          : MovieDetailsScreen(
+              movie: movie,
+              url: url,
+            );
     } else if (BlocProvider.of<DataControllerCubit>(context).state
         is SeriesLoaded) {
       final Series series = AppRoute.dataControllerCubit.series[widget.index];
-      return SeriesDetailsScreen(title: series.title!);
+      final String url = AppRoute.dataControllerCubit
+          .getTrailerUrl(widget.index, getSeriesUrls);
+      return url == ''
+          ? trailerNotAvailable(
+              title: series.title!,
+              widget: seriesDetailsList(series),
+            )
+          : SeriesDetailsScreen(
+              series: series,
+              url: url,
+            );
     } else {
       return Scaffold(
         appBar: AppBar(

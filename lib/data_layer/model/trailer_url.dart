@@ -41,21 +41,24 @@ class TrailerUrl {
     'https://www.youtube.com/watch?v=XwHQ1rSj6GI', //39
     'https://www.youtube.com/watch?v=ldGpwnBEMMU', //40
   ];
-  final List<String> seriesTrailerUrl = [];
-
-  String getMovieUrl(int index) {
-    if (index < moviesTrailerUrl.length) {
-      return moviesTrailerUrl[index];
-    } else {
-      return '';
-    }
-  }
-
-  String getSeriesUrl(int index) {
-    if (index < seriesTrailerUrl.length) {
-      return seriesTrailerUrl[index];
-    } else {
-      return '';
-    }
-  }
+  final List<String> seriesTrailerUrl = [
+    'https://www.youtube.com/watch?v=sj9J2ecsSpo', //1
+    'https://www.youtube.com/watch?v=IWBsDaFWyTE', //2
+    'https://www.youtube.com/watch?v=nW948Va-l10', //3
+    'https://www.youtube.com/watch?v=x9D0uUKJ5KI', //4
+    'https://www.youtube.com/watch?v=5VYb3B1ETlk', //5
+    'https://www.youtube.com/watch?v=x7Krla_UxRg', //6
+    'https://www.youtube.com/watch?v=m9EX0f6V11Y', //7
+    'https://www.youtube.com/watch?v=D7eFpRf4tac', //8
+    'https://www.youtube.com/watch?v=u7JsKhI2An0', //9
+    'https://www.youtube.com/watch?v=bLEFqhS5WmI', //10
+    'https://www.youtube.com/watch?v=OYhFFQl4fLs', //11
+    'https://www.youtube.com/watch?v=qZVTkn2NjS0', //12
+    'https://www.youtube.com/watch?v=HewiZqo1bKM', //13
+    '', //14
+    'https://www.youtube.com/watch?v=nqkpDcWK7eM', //15
+    'https://www.youtube.com/watch?v=RVwJp_959d8', //16
+    'https://www.youtube.com/watch?v=Z8BRP1ijweA', //17
+    '', //18
+  ];
 }

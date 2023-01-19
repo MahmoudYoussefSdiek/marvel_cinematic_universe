@@ -15,23 +15,42 @@ class DataControllerCubit extends Cubit<DataControllerState> {
 
   List<dynamic> getAllData(String path) {
     if (path == getAllMovies) {
-      data.getAllData(path).then((allData) {
-        for (int i = 0; i < allData.length; i++) {
-          movies.add(allData[i]);
-        }
+      if (movies.isNotEmpty) {
         emit(MoviesLoaded());
-      });
-      return movies;
+        return movies;
+      } else {
+        data.getAllData(path).then((allData) {
+          for (int i = 0; i < allData.length; i++) {
+            movies.add(allData[i]);
+          }
+          emit(MoviesLoaded());
+        });
+        return movies;
+      }
     } else if (path == getAllSeries) {
-      data.getAllData(path).then((allData) {
-        for (int i = 0; i < allData.length; i++) {
-          series.add(allData[i]);
-        }
+      if (series.isNotEmpty) {
         emit(SeriesLoaded());
-      });
-      return series;
+        return series;
+      } else {
+        data.getAllData(path).then((allData) {
+          for (int i = 0; i < allData.length; i++) {
+            series.add(allData[i]);
+          }
+          emit(SeriesLoaded());
+        });
+        return series;
+      }
     } else {
       return [];
+    }
+  }
+
+  String getTrailerUrl(int index, String type) {
+    final urlsList = data.getTrailerUrl(type);
+    if (index < urlsList.length) {
+      return urlsList[index];
+    } else {
+      return 'null';
     }
   }
 }

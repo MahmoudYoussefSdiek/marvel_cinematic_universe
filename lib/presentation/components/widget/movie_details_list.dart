@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:marvel_cinematic_universe/data_layer/model/movie.dart';
 import 'package:marvel_cinematic_universe/presentation/components/constant.dart';
-import 'package:marvel_cinematic_universe/presentation/components/widget/detailsItemList.dart';
+import 'package:marvel_cinematic_universe/presentation/components/widget/details_item_list.dart';
 
 Widget movieDetailsList(Movie movie) {
   return Padding(
-    padding: const EdgeInsets.all(8.0),
+    padding: const EdgeInsetsDirectional.fromSTEB(2, 2, 2, 2),
     child: Column(
       children: [
+        detailsItemList(itemTitle, movie.title ?? upcoming),
         detailsItemList(itemReleaseDate, movie.releaseDate ?? upcoming),
         detailsItemList(itemBoxOffice,
             movie.boxOffice == '0' ? upcoming : movie.boxOffice!),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:marvel_cinematic_universe/business_logic/app_route.dart';
 import 'package:marvel_cinematic_universe/business_logic/cubit/data_controller_cubit.dart';
 import 'package:marvel_cinematic_universe/presentation/components/constant.dart';
 import 'package:marvel_cinematic_universe/presentation/components/widget/show_loading_indicator.dart';
@@ -15,21 +16,15 @@ class MoviesLayout extends StatefulWidget {
 }
 
 class _MoviesLayoutState extends State<MoviesLayout> {
-  List<dynamic> allMovies = [];
+  // List<dynamic> allMovies = [];
 
   @override
   void initState() {
     super.initState();
-    allMovies =
-        BlocProvider.of<DataControllerCubit>(context).getAllData(getAllMovies);
+    AppRoute.dataControllerCubit.getAllData(getAllMovies);
   }
 
   @override
-  void dispose() {
-    allMovies.clear();
-    super.dispose();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,8 +42,8 @@ class _MoviesLayoutState extends State<MoviesLayout> {
         if (state is MoviesLoaded) {
           // allMovies = (state).movies;
           return MovieScreen(
-            length: allMovies.length,
-            data: allMovies,
+            length: AppRoute.dataControllerCubit.movies.length,
+            data: AppRoute.dataControllerCubit.movies,
           );
         } else {
           return showLoadingIndicator();

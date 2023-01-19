@@ -16,58 +16,60 @@ class MovieDetailsScreen extends StatefulWidget {
 }
 
 class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
-  late YoutubePlayer youtubePlayer;
   late YoutubePlayerController youtubePlayerController;
   late String videoId;
+
   @override
   void initState() {
     super.initState();
     videoId = YoutubePlayer.convertUrlToId(widget.url)!;
-    youtubePlayerController = YoutubePlayerController(initialVideoId: videoId);
-    youtubePlayer = YoutubePlayer(controller: youtubePlayerController);
+    youtubePlayerController = YoutubePlayerController(
+      initialVideoId: videoId,
+      flags: const YoutubePlayerFlags(
+        autoPlay: false,
+        loop: false,
+        // endAt: youtubePlayerController.metadata.duration.inSeconds,
+      ),
+    );
   }
 
   @override
   void dispose() {
+    youtubePlayerController.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.movie.title!),
-        backgroundColor: AppColors.mainColor,
-      ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            youtubePlayer,
-            listWidget(
-              widget: movieDetailsList(widget.movie),
-            ),
-          ],
+    return YoutubePlayerBuilder(
+        player: YoutubePlayer(
+          controller: youtubePlayerController,
+          showVideoProgressIndicator: true,
+          progressIndicatorColor: AppColors.widgetColor,
+          progressColors: ProgressBarColors(
+            playedColor: AppColors.widgetColor,
+            handleColor: AppColors.widgetColor,
+          ),
         ),
-      ),
-      backgroundColor: AppColors.secondaryColor,
-
-      // body: Padding(
-      //   padding: const EdgeInsets.all(8.0),
-      //   child: listWidget(
-      //     widget: Center(
-      //       child: Column(
-      //         children: [
-      //           controller.value.isInitialized
-      //               ? AspectRatio(
-      //                   aspectRatio: controller.value.aspectRatio,
-      //                   child: VideoPlayer(controller),
-      //                 )
-      //               : const Center(child: Text('video not here')),
-      //         ],
-      //       ),
-      //     ),
-      //   ),
-      // ),
-    );
+        builder: (context, player) {
+          return Scaffold(
+            appBar: AppBar(
+              title: Text(widget.movie.title!),
+              backgroundColor: AppColors.mainColor,
+            ),
+            body: listWidget(
+              widget: Column(
+                children: [
+                  player,
+                  const SizedBox(
+                    height: 8,
+                  ),
+                  movieDetailsList(widget.movie),
+                ],
+              ),
+            ),
+            backgroundColor: AppColors.secondaryColor,
+          );
+        });
   }
 }

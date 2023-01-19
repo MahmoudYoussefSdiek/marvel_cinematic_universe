@@ -25,7 +25,7 @@ class DataItem extends StatelessWidget {
       child: Container(
         width: double.infinity,
         margin: const EdgeInsetsDirectional.fromSTEB(8, 8, 8, 8),
-        padding: const EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+        padding: const EdgeInsetsDirectional.fromSTEB(8, 8, 8, 8),
         decoration: BoxDecoration(
           color: Colors.redAccent,
           borderRadius: BorderRadius.circular(10),
@@ -33,15 +33,17 @@ class DataItem extends StatelessWidget {
         child: Column(
           children: [
             Expanded(
-              child: Image.network(
-                data[index].coverUrl,
-                loadingBuilder: (context, child, loadingProgress) =>
-                    loadingProgress == null ? child : showLoadingIndicator(),
-                fit: BoxFit.cover,
-              ),
-            ),
-            const SizedBox(
-              height: 5,
+              child: Container(
+                  width: double.infinity,
+                  margin: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
+                  child: Image.network(
+                    data[index].coverUrl,
+                    loadingBuilder: (context, child, loadingProgress) =>
+                        loadingProgress == null
+                            ? child
+                            : showLoadingIndicator(),
+                    fit: BoxFit.cover,
+                  )),
             ),
             Text(
               ' Title : ${data[index].title}',
@@ -56,9 +58,6 @@ class DataItem extends StatelessWidget {
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
               ),
-            ),
-            const SizedBox(
-              height: 5,
             ),
           ],
         ),

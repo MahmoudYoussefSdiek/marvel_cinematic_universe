@@ -16,19 +16,13 @@ class SeriesLayout extends StatefulWidget {
 }
 
 class _SeriesLayoutState extends State<SeriesLayout> {
-  List<dynamic> allSeries = [];
+  //List<dynamic> allSeries = [];
 
   @override
   void initState() {
     super.initState();
-    allSeries =
-        BlocProvider.of<DataControllerCubit>(context).getAllData(getAllSeries);
-  }
-
-  @override
-  void dispose() {
-    allSeries.clear();
-    super.dispose();
+    //allSeries =
+    AppRoute.dataControllerCubit.getAllData(getAllSeries);
   }
 
   @override
@@ -49,8 +43,8 @@ class _SeriesLayoutState extends State<SeriesLayout> {
           // allSeries = AppRoute.dataControllerCubit.series;
 
           return SeriesScreen(
-            length: allSeries.length,
-            data: allSeries,
+            length: AppRoute.dataControllerCubit.series.length,
+            data: AppRoute.dataControllerCubit.series,
           );
         } else {
           return showLoadingIndicator();

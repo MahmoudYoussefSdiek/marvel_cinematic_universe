@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:marvel_cinematic_universe/business_logic/cubit/data_controller_cubit.dart';
+import 'package:marvel_cinematic_universe/business_logic/cubit/check_connection/internet_cubit.dart';
+import 'package:marvel_cinematic_universe/business_logic/cubit/data_controller/data_controller_cubit.dart';
 import 'package:marvel_cinematic_universe/data_layer/repository/fetch_data.dart';
 import 'package:marvel_cinematic_universe/data_layer/web_services/web_services.dart';
 import 'package:marvel_cinematic_universe/presentation/layout/details_layout.dart';
@@ -9,12 +10,13 @@ import 'package:marvel_cinematic_universe/presentation/layout/series_layout.dart
 
 class AppRoute {
   static late FetchData fetchData; // repository we will pass it to Cubit
-  static late DataControllerCubit
-      dataControllerCubit; // Cubit but we need to pass repository to Cubit
+  static late DataControllerCubit dataControllerCubit;
+  static late InternetCubit internetCubit;
 
   AppRoute() {
     fetchData = FetchData(WebServices());
     dataControllerCubit = DataControllerCubit(fetchData);
+    internetCubit = InternetCubit();
   }
 
   Route? generateRoute(RouteSettings settings) {

@@ -33,11 +33,11 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
     );
   }
 
-  @override
-  void dispose() {
-    youtubePlayerController.dispose();
-    super.dispose();
-  }
+  // @override
+  // void deactivate() {
+  //   youtubePlayerController.dispose();
+  //   super.deactivate();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -71,5 +71,11 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
             backgroundColor: AppColors.secondaryColor,
           );
         });
+  }
+
+  @override
+  void dispose() {
+    youtubePlayerController.dispose();
+    super.dispose();
   }
 }

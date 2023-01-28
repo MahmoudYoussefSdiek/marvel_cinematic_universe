@@ -11,9 +11,12 @@ Widget movieDetailsList(Movie movie) {
         detailsItemList(itemTitle, movie.title ?? upcoming),
         detailsItemList(itemReleaseDate, movie.releaseDate ?? upcoming),
         detailsItemList(itemBoxOffice,
-            movie.boxOffice == '0' ? upcoming : movie.boxOffice!),
-        detailsItemList(movieDuration,
-            movie.duration == 0 ? upcoming : movie.duration.toString()),
+            movie.boxOffice == '0' ? upcoming : '${movie.boxOffice!} \$'),
+        detailsItemList(
+            movieDuration,
+            movie.duration == 0
+                ? upcoming
+                : '${movie.duration.toString()} Min'),
         detailsItemList(itemOverview, movie.overview ?? upcoming),
         detailsItemList(itemDirectedBy,
             movie.directedBy == '' ? upcoming : movie.directedBy!),

@@ -42,40 +42,41 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
   @override
   Widget build(BuildContext context) {
     return YoutubePlayerBuilder(
-        player: YoutubePlayer(
-          controller: youtubePlayerController,
-          showVideoProgressIndicator: true,
-          progressIndicatorColor: AppColors.widgetColor,
-          progressColors: ProgressBarColors(
-            playedColor: AppColors.widgetColor,
-            handleColor: AppColors.widgetColor,
-          ),
+      player: YoutubePlayer(
+        controller: youtubePlayerController,
+        showVideoProgressIndicator: true,
+        progressIndicatorColor: AppColors.widgetColor,
+        progressColors: ProgressBarColors(
+          playedColor: AppColors.widgetColor,
+          handleColor: AppColors.widgetColor,
         ),
-        builder: (context, player) {
-          return Scaffold(
-            appBar: AppBar(
-              title: Text(widget.movie.title!),
-              backgroundColor: AppColors.mainColor,
+      ),
+      builder: (context, player) {
+        return Scaffold(
+          appBar: AppBar(
+            title: Text(widget.movie.title!),
+            backgroundColor: AppColors.mainColor,
+          ),
+          body: listWidget(
+            widget: Column(
+              children: [
+                player,
+                const SizedBox(
+                  height: 8,
+                ),
+                movieDetailsList(widget.movie),
+              ],
             ),
-            body: listWidget(
-              widget: Column(
-                children: [
-                  player,
-                  const SizedBox(
-                    height: 8,
-                  ),
-                  movieDetailsList(widget.movie),
-                ],
-              ),
-            ),
-            backgroundColor: AppColors.secondaryColor,
-          );
-        });
+          ),
+          backgroundColor: AppColors.secondaryColor,
+        );
+      },
+    );
   }
 
-  @override
-  void dispose() {
-    youtubePlayerController.dispose();
-    super.dispose();
-  }
+  // @override
+  // void dispose() {
+  //   youtubePlayerController.dispose();
+  //   super.dispose();
+  // }
 }
